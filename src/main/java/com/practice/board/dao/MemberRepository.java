@@ -1,12 +1,9 @@
 package com.practice.board.dao;
 
-import java.util.List;
-
-import org.springframework.data.domain.Sort;
-import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.data.repository.CrudRepository;
 
 import com.practice.board.model.Member;
 
-public interface MemberRepository extends PagingAndSortingRepository<Member, Long> {
-	List<Member> findAll(Sort sort);
+public interface MemberRepository extends CrudRepository<Member, Long> {
+	Member findByEmail(String email);
 }

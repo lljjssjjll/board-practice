@@ -24,18 +24,22 @@ public class Member implements Serializable {
 	@Column(name = "email")
 	private String email;
 	
+	@Column(name = "password")
+	private String password;
+	
 	public Member() {
 		super();
 	}
 	
-	public Member(String name, String email) {
+	public Member(Member member) {
 		super();
-		this.name = name;
-		this.email = email;
+		this.name = member.name;
+		this.email = member.email;
+		this.password = member.password;
 	}
 	
 	@Override
 	public String toString() {
-		return String.format("Member[id=%d, name=\"%s\", email=\"%s\"]", id, name, email);
+		return String.format("Member[id=%d, name=\"%s\", email=\"%s\", password=\"%s\"]", id, name, email, password);
 	}
 }
