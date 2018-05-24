@@ -1,5 +1,6 @@
 # board-practice
 게시판 실습
+==========
 
 1. 사용 기술
 * 프론트 : HTML, CSS, JavaScript<br/>
