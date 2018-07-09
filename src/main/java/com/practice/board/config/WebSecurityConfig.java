@@ -42,14 +42,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.csrf().disable();
 		
 		// 로그인이 필요하지 않은 페이지들
-		http.authorizeRequests().antMatchers("/", "/login", "/logout").permitAll();
+		http.authorizeRequests().antMatchers("/", "/login", "/logout", "/register").permitAll();
 		
 		// userInfo 페지이는 ROLE_USER와 ROLE_ADMIN 등 모든 권한 접근 가능
 		// 로그인이 안되어있을 경우 로그인 페이지 이동
 		http.authorizeRequests().antMatchers("/userInfo").access("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')");
 		
 		// ROLE_ADMIN만 접근 가능
-		http.authorizeRequests().antMatchers("/admin").access("hasRole('ROLE_ADMIN')");
+		http.authorizeRequests().antMatchers("/admin", "/members").access("hasRole('ROLE_ADMIN')");
 		
 		// 액세스 거부시 리다이렉팅 페이지 설정
 		http.authorizeRequests().and().exceptionHandling().accessDeniedPage("/403");

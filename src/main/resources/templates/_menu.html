@@ -1,13 +1,19 @@
 <div xmlns:th="http://www.thymeleaf.org" style="border: 1px solid #ccc; padding: 5px; margin-bottom: 20px;">
 
 	<a th:href="@{/}">Home</a>
-	| &nbsp;
+	<span>| &nbsp;</span>
 	
 	<a th:href="@{/userInfo}">User Info</a>
-	| &nbsp;
+	<span>| &nbsp;</span>
 	
 	<a th:href="@{/admin}">Admin</a>
-	| &nbsp;
+	<span>| &nbsp;</span>
+	
+	<a th:href="@{/members}">Members</a>
+	<span>| &nbsp;</span>
+	
+	<a th:if="${#request.userPrincipal == null}" th:href="@{/register}">Register</a>
+	<span th:if="${#request.userPrincipal == null}">| &nbsp;</span>
 	
 	<a th:if="${#request.userPrincipal != null}" th:href="@{/logout}">Logout</a>
 
