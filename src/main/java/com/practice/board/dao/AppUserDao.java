@@ -73,8 +73,8 @@ public class AppUserDao {
 		
 		AppUser appUser = new AppUser(
 				null, form.getUserName(), encPassword,
-				false, form.getGender(), form.getFirstName(),
-				form.getLastName(), form.getEmail(), form.getCountryCode());
+				form.getEmail(), form.getGender(), form.getCountryCode(), 
+				form.getFirstName(), form.getLastName(), false);
 		//entityManager.getTransaction().begin();
 		entityManager.persist(appUser);
 		//entityManager.getTransaction().commit();

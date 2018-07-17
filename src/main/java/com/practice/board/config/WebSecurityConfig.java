@@ -41,6 +41,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		
 		http.csrf().disable();
 		
+		http.headers().frameOptions().disable();
+		
 		// 로그인이 필요하지 않은 페이지들
 		http.authorizeRequests().antMatchers("/", "/login", "/logout", "/register").permitAll();
 		

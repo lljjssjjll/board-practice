@@ -105,7 +105,8 @@ public class MainController {
 			return;
 		}
 		System.out.println("Target = " + target);
-		
+
+		//입력 Form 마다 유효성 체크 클래스를 하나씩 등록
 		if (target.getClass() == AppUserForm.class) {
 			dataBinder.setValidator(appUserValidator);
 		}

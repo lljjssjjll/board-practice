@@ -30,7 +30,11 @@ public class AppUser {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_id_generator")
-	@SequenceGenerator(name = "user_id_generator", sequenceName = "app_user_user_id_seq")
+	@SequenceGenerator(
+			name = "user_id_generator",
+			sequenceName = "app_user_user_id_seq",
+			initialValue = 1,
+			allocationSize = 1)
 	@Column(name = "user_id", nullable = false)
 	private Long userId;
 	
@@ -40,11 +44,14 @@ public class AppUser {
 	@Column(name = "enc_password", length = 200, nullable = false)
 	private String encPassword;
 	
-	@Column(name = "enabled", length = 1, nullable = false)
-	private boolean enabled;
+	@Column(name = "email", length = 100, nullable = false)
+	private String email;
 	
 	@Column(name = "gender", length = 1, nullable = false)
 	private String gender;
+	
+	@Column(name = "country_code", length = 2, nullable = false)
+	private String countryCode;
 	
 	@Column(name = "first_name", length = 100, nullable = true)
 	private String firstName;
@@ -52,10 +59,7 @@ public class AppUser {
 	@Column(name = "last_name", length = 100, nullable = true)
 	private String lastName;
 	
-	@Column(name = "email", length = 100, nullable = false)
-	private String email;
-	
-	@Column(name = "country_code", length = 2, nullable = false)
-	private String countryCode;
+	@Column(name = "enabled", length = 1, nullable = false)
+	private boolean enabled;
 	
 }

@@ -3,7 +3,9 @@ package com.practice.board.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
@@ -30,9 +32,14 @@ import lombok.NoArgsConstructor;
 public class Country {
 	
 	@Id
-	@GeneratedValue
-	@Column(name = "id", nullable = false)
-	private Long id;
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "country_id_generator")
+	@SequenceGenerator(
+			name = "country_id_generator",
+			sequenceName = "country_country_id_seq",
+			initialValue = 1,
+			allocationSize = 1)
+	@Column(name = "country_id", nullable = false)
+	private Long countryId;
 
 	@Column(name = "country_code", length = 2, nullable = false)
 	private String countryCode;
